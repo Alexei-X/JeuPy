@@ -50,6 +50,32 @@ def moveLeft():
         pygame.draw.rect(screen_surface, blue, player)
         pygame.display.flip()
 
+# fonction pour aller en haut
+def moveUp():
+    global player_x, player_y
+    time.sleep(.030)
+    if player_y <= 0:
+        pass
+    else:
+        player_y -= 5
+        screen_surface.fill(black)
+        player = pygame.Rect(player_x, player_y, 30, 60)
+        pygame.draw.rect(screen_surface, blue, player)
+        pygame.display.flip()
+
+# fonction pour aller en bas
+def moveDown():
+    global player_x, player_y
+    time.sleep(.030)
+    if player_y >= 540:
+        pass
+    else:
+        player_y += 5
+        screen_surface.fill(black)
+        player = pygame.Rect(player_x, player_y, 30, 60)
+        pygame.draw.rect(screen_surface, blue, player)
+        pygame.display.flip()
+
 # boucle principale du jeu
 run = True
 
@@ -62,7 +88,11 @@ while run:
         moveRight()
     elif keys[pygame.K_LEFT]:
         moveLeft()
-    print(player_x)
+    elif keys[pygame.K_UP]:
+        moveUp()
+    elif keys[pygame.K_DOWN]:
+        moveDown()
+    print(player_y)
 
 
 
