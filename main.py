@@ -48,6 +48,11 @@ ennemy4_x = random.choice(range(0, 370, 10))
 ennemy4_y = -70
 ennemy4 = pygame.Rect(ennemy4_x, -60, 40, 60)
 
+# fonction de collision
+def collide():
+    if player.colliderect(ennemy1) or player.colliderect(ennemy2) or player.colliderect(ennemy3)\
+    or player.colliderect(ennemy4):
+        quit()
 
 # fonction pour aller à droite
 def moveRight():
@@ -189,6 +194,7 @@ def move_ennemy():
     pygame.draw.rect(screen_surface, red, ennemy4)
     pygame.draw.rect(screen_surface, blue, player)
     pygame.display.flip()
+    collide()
     
 
 # boucle principale du jeu
@@ -222,10 +228,3 @@ while run:
             spawn_ennemy4()
             
     move_ennemy()
-
-
-
-
-
-
-
